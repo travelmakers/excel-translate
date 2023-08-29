@@ -27,8 +27,8 @@ const transformToTwoColumns = (obj) => {
     Object.keys(obj).forEach((key) => {
         const row = {
             ['key']: key,
-            ['ko']: obj[key],
-            ['en']: obj[key],
+            ['ko']: obj['ko'],
+            ['en']: obj['en'],
         };
         result.push(row);
     });
