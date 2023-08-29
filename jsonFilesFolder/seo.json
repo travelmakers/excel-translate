@@ -1,0 +1,41 @@
+{
+  "title": {
+    "prefix": "호텔에삶",
+    "subfix": "호텔에삶 | {{subfix}}",
+    "default": "호텔에삶 | 호텔 한달살기, 장기투숙, 레지던스 호텔, 서울 호캉스",
+    "search": {
+      "all": "서울/부산/여수/경기/여수 장기숙박 호텔 찾기",
+      "seoul": "서울 장기투숙 호텔 찾기",
+      "vietnam": "베트남 한달살기 호텔 찾기",
+      "jeju": "제주 한달살기 호텔 찾기",
+      "metro": "수도권 장기투숙 호텔 찾기",
+      "gyeongsang": "경상권, 부산 호캉스 호텔 찾기",
+      "gangwon": "강원 양양, 속초부터 여수 호텔 찾기"
+    },
+    "hotel": {
+      "detail": "{{hotelName}}",
+      "option": "옵션 선택",
+      "schedule": "일정 선택",
+      "payment": {
+        "default": "결제",
+        "result": "결제 완료"
+      }
+    },
+    "auth": {
+      "login": "로그인",
+      "register": "회원가입",
+      "info": "회원 정보 변경",
+      "resetPassword": "비밀번호 찾기"
+    },
+    "mypage": {
+      "default": "마이페이지",
+      "notification": "알림 설정",
+      "faq": "자주 묻는 질문"
+    },
+    "promotions": "프로모션"
+  },
+  "description": {
+    "default": "호텔 한달살기 No.1, 서울,부산,강릉,여수 호텔 한달살기, 레지던스 호텔 장기투숙부터 호캉스 호텔까지 쉽고 빠르게 호텔 예약하기",
+    "promotions": "호텔부터 리조트, 레지던스까지 숙소 예약을 위한 할인 프로모션과 이벤트 혜택 모아보기"
+  }
+}
