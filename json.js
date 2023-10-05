@@ -27,8 +27,8 @@ const transformToTwoColumns = (obj) => {
     Object.keys(obj).forEach((key) => {
         const row = {
             ['key']: key,
-            ['ko']: obj['ko'],
-            ['en']: obj['en'],
+            ['ko']: obj[key],
+            ['en']: obj[key],
         };
         result.push(row);
     });
@@ -42,6 +42,7 @@ jsonFiles.forEach(jsonFile => {
     const jsonData = require(`./jsonFilesFolder/${jsonFile}`);
 
     const flattenedKeys = flattenKeys(jsonData);
+
     const transformedData = transformToTwoColumns(flattenedKeys);
 
     // Convert the JSON data to a worksheet
