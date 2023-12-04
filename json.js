@@ -5,8 +5,16 @@ const path = require('path');
 // Specify the folder path containing the JSON files
 const folderPath = './jsonFilesFolder'; // Replace with your folder path
 
+const locales = ['/ko', '/en'];
+
 // Get a list of all JSON files in the folder
-const jsonFiles = fs.readdirSync(folderPath).filter(file => path.extname(file) === '.json');
+const jsonFiles = [];
+locales.map(locale => {
+    jsonFiles.push(
+        ...fs.readdirSync(folderPath + locale).filter(file => path.extname(file) === '.json')
+    );
+
+})
 
 const flattenKeys = (obj, prefix = '') => {
     return Object.keys(obj).reduce((acc, key) => {
@@ -21,14 +29,14 @@ const flattenKeys = (obj, prefix = '') => {
     }, {});
 };
 
-const transformToTwoColumns = (obj) => {
+const transformToTwoColumns = (obj, objEn) => {
     const result = [];
 
     Object.keys(obj).forEach((key) => {
         const row = {
             ['key']: key,
             ['ko']: obj[key],
-            ['en']: obj[key],
+            ['en']: objEn[key],
         };
         result.push(row);
     });
@@ -39,11 +47,11 @@ const transformToTwoColumns = (obj) => {
 
 jsonFiles.forEach(jsonFile => {
     // Load the JSON data
-    const jsonData = require(`./jsonFilesFolder/${jsonFile}`);
-
+    const jsonData = require(`./jsonFilesFolder/ko/${jsonFile}`);
+    const jsonDataEn = require(`./jsonFilesFolder/en/${jsonFile}`);
     const flattenedKeys = flattenKeys(jsonData);
-
-    const transformedData = transformToTwoColumns(flattenedKeys);
+    const flattenedEnKeys = flattenKeys(jsonDataEn);
+    const transformedData = transformToTwoColumns(flattenedKeys, flattenedEnKeys);
 
     // Convert the JSON data to a worksheet
     const worksheet = XLSX.utils.json_to_sheet(transformedData);
